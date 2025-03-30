@@ -1,6 +1,5 @@
 ### EduAR - 教育增强现实教学系统开发平台
 
-![AR Education](https://via.placeholder.com/800x400.png?text=AR+Education+Demonstration)
 
 ## 项目简介
 本项目旨在开发一套基于增强现实（AR）技术的教育系统，通过整合SLAM、多模态交互与AI推理能力，为教学场景提供沉浸式三维课件开发与交互解决方案。支持化学实验验证、动态光学补偿等核心功能，适配多种硬件平台。
@@ -75,20 +74,18 @@ make -j4
 欢迎通过以下方式参与贡献：
 1. 提交Issue报告问题
 2. 通过Pull Request提交改进代码
-3. 完善[开源模型仓库](https://github.com/onnx/models)
+3. 完善[开源模型仓库]
 4. 开发学科插件（参考化学验证插件模板）
 
 ## 许可协议
-Apache 2.0 License © 2023 EduAR Team
+null
 
 ```
 
 > 项目预览二维码（示例）  
-![QR Code](https://via.placeholder.com/150x150.png?text=Scan+for+Demo)
+null
 
-**关键开发节点**  
+**关键开发节点**  （目前刚刚起步）
 - 基础AR系统：1个月  
 - 核心交互模块：3个月  
 - 首门课程开发：6个月  
-
-注：硬件支持树莓派+LCoS模组快速验证，详细部署指南见[Wiki](https://github.com/your-repo/wiki)
