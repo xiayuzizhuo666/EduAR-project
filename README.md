@@ -19,14 +19,3 @@
 | AI加速 | 昇腾310 NPU | [PyTorch昇腾插件](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/70RC1alpha001/operatordev) | [模型量化工具](tools/model_quantization/) |
 | 显示 | 双2K LCoS | [DRM/KMS框架](https://dri.freedesktop.org/) | [色温补偿算法](software/core/display_ctl/) |
 
-### 软件栈
-```mermaid
-graph TD
-    A[Unity/Unreal插件] --> B(AR Foundation)
-    B --> C[OpenXR Runtime]
-    C --> D{硬件抽象层}
-    D --> E[Camera HAL]
-    D --> F[Display HAL]
-    B --> G[AI推理引擎]
-    G --> H[TensorFlow Lite]
-    G --> I[ONNX Runtime]
