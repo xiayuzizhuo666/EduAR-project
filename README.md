@@ -1,30 +1,32 @@
-# EduAR - Open-Source Educational AR Platform 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourname/EduAR/ci.yml?branch=main)](https://github.com/yourname/EduAR/actions)
+# EduAR - 开源教育AR教学系统
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
+[![Documentation](https://img.shields.io/badge/docs-passing-brightgreen)](https://yourname.github.io/EduAR-docs)
+[![Star History Chart](https://api.star-history.com/svg?repos=yourname/EduAR&type=Date)](https://star-history.com/#yourname/EduAR&Date)
 
-**Transform classroom learning through affordable augmented reality**
+**基于昇腾AI处理器的轻量化AR教育解决方案**
 
-## 🌟 Key Features
-- **多模态交互系统**：融合眼动/手势/语音输入
-- **轻量化SLAM**：基于ORB-SLAM3优化（[源码](https://github.com/UZ-SLAMLab/ORB_SLAM3)）
-- **离线AI推理**：TensorFlow Lite量化模型（<50MB）
-- **跨学科内容**：数学/化学/地理可视化工具链
+## 🚀 核心特性
+- **全场景教学支持**：覆盖数学/化学/地理等学科的三维可视化
+- **多模态交互引擎**：眼动+手势+语音融合输入（<5ms延迟）
+- **离线AI推理**：昇腾310 NPU支持（50TOPS INT8算力）
+- **跨平台部署**：支持Android/Linux/Windows系统
 
-## 🛠️ Tech Stack
-| 模块 | 核心技术 | 开源组件 |
-|------|----------|----------|
-| AR核心 | OpenXR + AR Foundation | [OpenXR Toolkit](https://github.com/OpenXR-Toolkit) |
-| AI推理 | ONNX Runtime + TFLite | [MediaPipe](https://github.com/google/mediapipe) |
-| 3D渲染 | Three.js + Unity | [Babylon.js](https://github.com/BabylonJS/Babylon.js) |
-| 后端服务 | FastAPI + Redis | [Supabase](https://github.com/supabase/supabase) |
+## 🛠️ 技术架构
+### 硬件平台
+| 模块 | 组件 | 开源支持 | 开发文档 |
+|------|------|----------|----------|
+| 主控 | 骁龙XR2 Gen1 | [Linux Kernel 5.10](https://www.kernel.org/) | [显示驱动开发指南](docs/hardware/display.md) |
+| AI加速 | 昇腾310 NPU | [PyTorch昇腾插件](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/70RC1alpha001/operatordev) | [模型量化工具](tools/model_quantization/) |
+| 显示 | 双2K LCoS | [DRM/KMS框架](https://dri.freedesktop.org/) | [色温补偿算法](software/core/display_ctl/) |
 
-## 🚀 快速开始
-```bash
-# 1. 克隆仓库
-git clone --recurse-submodules https://github.com/yourname/EduAR.git
-
-# 2. 安装依赖
-cd EduAR && pip install -r requirements.txt
-
-# 3. 启动示例场景（需连接AR设备）
-python examples/chemistry_lab.py
+### 软件栈
+```mermaid
+graph TD
+    A[Unity/Unreal插件] --> B(AR Foundation)
+    B --> C[OpenXR Runtime]
+    C --> D{硬件抽象层}
+    D --> E[Camera HAL]
+    D --> F[Display HAL]
+    B --> G[AI推理引擎]
+    G --> H[TensorFlow Lite]
+    G --> I[ONNX Runtime]
