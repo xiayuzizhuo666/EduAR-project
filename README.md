@@ -38,37 +38,38 @@
 
 ## ⚡ 快速开始
 ### 硬件原型验证
-
+```bash
 # 使用预构建Docker镜像
 docker run -it --privileged eduxr-core:2.0
 git lfs pull -I "3D_Models/Classroom_Demo"
-
+```
 
 ### 开发环境部署
 
 # 编译ORB-SLAM3核心模块
+```bash
 git clone https://github.com/UZ-SLAMLab/ORB_SLAM3
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DEDUXR_MODE=ON
 make -j$(nproc)
-
-
+```
 ---
 
 ## 🔧 开发指南
 ### 实时SLAM优化
-
+```cpp
 // ORBextractor.cc 教学场景参数配置
 if (education_mode) {
   contrastThreshold = 0.05;   // 降低对比度阈值
   nfeatures *= 1.5;          // 增加特征点密度
   edgeThreshold = 20;         // 黑板边缘优化
 }
-
+```
 
 ### 多模态数据融合
 
 # 时空对齐与意图识别
+```python
 fusion_pipeline = MultiModalFusion(
   gesture_model=MediaPipeHands(),
   eye_tracker=PupilCore(ip='192.168.1.100'),
@@ -79,7 +80,7 @@ sync_data = fusion_pipeline.align_timestamps(
   tolerance_ms=3, 
   coordinate_system='blackboard'
 )
-
+```
 
 ---
 
